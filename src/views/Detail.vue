@@ -23,7 +23,7 @@
             :readonly="readOnly"
           ></v-text-field>
         </v-col>
-        <v-col cols="12" md="6">
+        <v-col cols="12">
           <v-text-field
             label="age"
             v-model="editTable.age"
@@ -32,14 +32,23 @@
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="6">
-          <v-text-field
-            label="sex"
+          <v-radio-group
             v-model="editTable.sex"
-            outlined
+            :mandatory="false"
             :readonly="readOnly"
-          ></v-text-field>
+          >
+            <v-row>
+              <v-col cols="1"><p>sex</p></v-col>
+              <v-col cols="2">
+                <v-radio label="Male" value="M"></v-radio>
+              </v-col>
+              <v-col cols="1"
+                ><v-radio label="Femail" value="F"></v-radio
+              ></v-col>
+            </v-row>
+          </v-radio-group>
         </v-col>
-        <v-col cols="12" md="6">
+        <v-col cols="12">
           <v-text-field
             label="email"
             v-model="editTable.email"
