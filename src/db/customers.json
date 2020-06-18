@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "first_name": "kridsada",
+    "last_name": "wannasing",
+    "age": 24,
+    "sex": "M",
+    "email": "abc@example.com",
+    "tel": "0812345678",
+    "status": "active",
+    "remark": "text test"
+  },
+  {
+    "id": 2,
+    "first_name": "somchai",
+    "last_name": "jaidee",
+    "age": 36,
+    "sex": "M",
+    "email": "qwer@example.com",
+    "tel": "0998765432",
+    "status": "active",
+    "remark": ""
+  },
+  {
+    "id": 3,
+    "first_name": "นางเอ",
+    "last_name": "นามสมมติ",
+    "age": 40,
+    "sex": "F",
+    "email": "xyz@example.com",
+    "tel": "061357911",
+    "status": "deactive",
+    "remark": ""
+  }
+]
