@@ -1,8 +1,8 @@
 <template>
   <v-container>
-    <v-row>
+    <v-row class="text-center">
       <v-col>
-        <h1 text-align="center">รายชื่อลูกค้า</h1>
+        <h1>รายชื่อลูกค้า</h1>
       </v-col>
     </v-row>
     <v-row>

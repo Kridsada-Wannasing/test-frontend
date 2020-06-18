@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row>
+    <v-row class="text-center">
       <v-col>
         <h1>Detail</h1>
       </v-col>
