@@ -11,16 +11,23 @@ export default new Vuex.Store({
     table,
   },
   state: {
-    dialog: null,
+    nameDialog: null,
+    dataDialog: null,
   },
   mutations: {
-    SET_DIALOG(state, dialog) {
-      state.dialog = dialog;
+    SET_NAME_DIALOG(state, nameDialog) {
+      state.nameDialog = nameDialog;
+    },
+    SET_CREATE_DATA_DIALOG(state, dataDialog) {
+      state.dataDialog = dataDialog;
     },
   },
   actions: {
-    setDialog({ commit }, dialog) {
-      commit("SET_DIALOG", dialog);
+    setNameDialog({ commit }, nameDialog) {
+      commit("SET_NAME_DIALOG", nameDialog);
+    },
+    setCreateDataDialog({ commit }, dataDialog) {
+      commit("SET_CREATE_DATA_DIALOG", dataDialog);
     },
   },
 });

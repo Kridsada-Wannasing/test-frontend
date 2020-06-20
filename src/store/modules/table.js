@@ -1,5 +1,7 @@
 export const namespaced = true;
 
+let startId = 4;
+
 export const state = {
   tables: [],
 };
@@ -9,13 +11,13 @@ export const mutations = {
     state.tables = tables;
   },
   CREATE_DATA_TABLE(state, table) {
-    state.tables.push(table);
+    state.tables.push({ ...table, id: startId++ });
   },
   SET_DATA_TABLE(state, table) {
     state.table = table;
   },
-  UPDATE_DATA_TABLE(state, target, table) {
-    state.tables.splice(target, 1, table);
+  UPDATE_DATA_TABLE(state, updateAt) {
+    state.tables.splice(updateAt.target, 1, updateAt.table);
   },
   DELETE_DATA_TABLE(state, target) {
     state.tables.splice(target, 1);
@@ -37,9 +39,16 @@ export const actions = {
     commit("CREATE_DATA_TABLE", table);
   },
   updateDataTable({ commit, getters }, table) {
+    //หา index ของ table.id
     let target = getters.indexOfTarget(table.id);
 
-    commit("UPDATE_DATA_TABLE", target, table);
+    //ส่ง target และ table ที่จะ update เป็น Object
+    let updateAt = {
+      target,
+      table,
+    };
+
+    commit("UPDATE_DATA_TABLE", updateAt);
   },
   deleteDataTable({ commit, getters }, table) {
     let target = getters.indexOfTarget(table.id);

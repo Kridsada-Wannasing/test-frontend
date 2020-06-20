@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-dialog v-model="dialog" max-width="290">
+    <v-dialog v-model="nameDialog" max-width="290">
       <v-card>
         <v-card-title class="headline">เปลี่ยนชื่อ</v-card-title>
 
@@ -37,19 +37,19 @@ export default {
   methods: {
     editUserFunc() {
       this.$store.dispatch("login/edit", this.editUser);
-      this.dialog = false;
+      this.nameDialog = false;
     },
     cancel() {
-      this.dialog = false;
+      this.nameDialog = false;
     },
   },
   computed: {
-    dialog: {
+    nameDialog: {
       get() {
-        return this.$store.state.dialog;
+        return this.$store.state.nameDialog;
       },
       set(value) {
-        this.$store.dispatch("setDialog", value);
+        this.$store.dispatch("setNameDialog", value);
       },
     },
   },

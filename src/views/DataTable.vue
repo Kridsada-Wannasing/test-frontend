@@ -29,12 +29,22 @@
         </v-data-table>
       </v-col>
     </v-row>
+    <v-row>
+      <v-col>
+        <v-btn @click="setCreateDataDialog(!dataDialog)">Create Data </v-btn>
+      </v-col>
+    </v-row>
+    <CreateDataDialog />
   </v-container>
 </template>
 <script>
 import customers from "@/db/customers";
-import { mapState } from "vuex";
+import CreateDataDialog from "../components/CreateDataDialog";
+import { mapState, mapActions } from "vuex";
 export default {
+  components: {
+    CreateDataDialog,
+  },
   data() {
     return {
       headers: [
@@ -68,12 +78,16 @@ export default {
   },
   methods: {
     deleteItem(item) {
-      confirm("คุณต้องการลบหรือไม่") &&
+      confirm(`คุณต้องการที่จะลบข้อมูลของ ${item.first_name} ใช่หรือไม่`) &&
         this.$store.dispatch("table/deleteDataTable", item);
     },
+    ...mapActions(["setCreateDataDialog"]),
   },
   computed: {
-    ...mapState("table", ["tables"]),
+    ...mapState({
+      tables: (state) => state.table.tables,
+      dataDialog: "dataDialog",
+    }),
   },
 };
 </script>

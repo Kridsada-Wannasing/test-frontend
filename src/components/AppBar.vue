@@ -9,7 +9,7 @@
       <div
         class="d-flex mr-5 cursor"
         align="center"
-        @click="setDialog(!dialog)"
+        @click="setNameDialog(!nameDialog)"
       >
         {{ user }}
       </div>
@@ -31,12 +31,12 @@ export default {
         .dispatch("login/logout")
         .then(() => this.$router.push({ name: "Login" }));
     },
-    ...mapActions(["setDialog"]),
+    ...mapActions(["setNameDialog"]),
   },
   computed: {
     ...mapState({
       user: (state) => state.login.user,
-      dialog: "dialog",
+      nameDialog: "nameDialog",
     }),
   },
 };
